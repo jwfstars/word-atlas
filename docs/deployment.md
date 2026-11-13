@@ -2,6 +2,9 @@
 
 `npm run build` 生成纯静态站点 `dist/`，可以放到任何静态托管（Nginx、Cloudflare Pages、Vercel、GitHub Pages）。
 
+> 自建 NAS（飞牛 fnOS）的实际部署记录、选盘、nginx 缓存策略与更新脚本见
+> [deployment-nas.md](deployment-nas.md)。
+
 ## 子路径
 
 ```bash
