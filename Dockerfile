@@ -11,7 +11,7 @@ RUN npm run build
 FROM nginx:alpine AS runtime
 COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/dist /usr/share/nginx/html
-EXPOSE 80
+EXPOSE 8080 80
 # 健康检查：入口页 + 词库索引
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s \
-  CMD wget -qO- http://127.0.0.1/ >/dev/null && wget -qO- http://127.0.0.1/atlas/index.json >/dev/null || exit 1
+  CMD wget -qO- http://127.0.0.1:8080/ >/dev/null && wget -qO- http://127.0.0.1:8080/atlas/index.json >/dev/null || exit 1
